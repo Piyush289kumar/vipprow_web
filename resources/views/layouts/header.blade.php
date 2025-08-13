@@ -45,16 +45,13 @@
         </div>
     </div>
 </div> --}}
-
 <!-- pp Back To Top Start -->
 <button id="pp-back-top" class="pp-back-to-top show">
     <i class="fa-solid fa-arrow-up"></i>
 </button>
-
 <!-- pp MouseCursor Start -->
 <div class="mouseCursor cursor-outer"></div>
 <div class="mouseCursor cursor-inner"></div>
-
 <!-- Offcanvas Area Start -->
 <div class="fix-area">
     <div class="offcanvas__info">
@@ -62,7 +59,7 @@
             <div class="offcanvas__content">
                 <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                     <div class="offcanvas__logo">
-                        <a href="index.html">
+                        <a href="{{ route('index') }}">
                             <img src="assets/img/logo/vipintiwari.png" alt="logo-img"
                                 style="border-radius: 50%; width:75px;">
                         </a>
@@ -117,7 +114,6 @@
                         </li>
                     </ul>
                     <div class="header-button mt-4">
-
                     </div>
                     <a href="event-details.html" class="pp-theme-btn">
                         <span class="pp-icon-btn"><i class="icon-icon-1"></i></span>
@@ -125,10 +121,8 @@
                             <span class="pp-text-2">UPCOMMING EVENT</span>
                         </span>
                     </a>
-
                     @php
                         $config = \App\Models\AppConfiguration::first();
-
                         // Map model field names to FontAwesome icon classes
                         $socialIcons = [
                             'whatsapp_link' => 'fab fa-whatsapp',
@@ -139,7 +133,6 @@
                             'linkedin_link' => 'fab fa-linkedin-in',
                         ];
                     @endphp
-
                     <div class="social-icon d-flex align-items-center">
                         @foreach ($socialIcons as $field => $icon)
                             @if (!empty($config->$field))
@@ -149,25 +142,23 @@
                             @endif
                         @endforeach
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="offcanvas__overlay"></div>
-
 <!-- Header Section Start -->
 <header id="header-sticky" class="header-1 header-2">
     <div class="container">
         <div class="mega-menu-wrapper">
             <div class="header-main">
                 <div class="logo">
-                    <a href="index.html" class="header-logo">
+                    <a href="{{ route('index') }}" class="header-logo">
                         <img src="assets/img/logo/vipintiwari.png" alt="logo-img"
                             style="border-radius: 50%; width: 55px;">
                     </a>
-                    <a href="index.html" class="header-logo-2">
+                    <a href="{{ route('index') }}" class="header-logo-2">
                         <img src="assets/img/logo/vipintiwari.png" alt="logo-img"
                             style="border-radius: 50%; width: 55px;">
                     </a>

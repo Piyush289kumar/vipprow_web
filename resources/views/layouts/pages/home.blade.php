@@ -19,9 +19,9 @@
         <div class="pp-hero-shape-2 float-bob-y">
             <img src="assets/img/home-2/hero/shape-2.png" alt="img">
         </div>
-        <div class="pp-hero-image-3 float-bob-y">
+        {{-- <div class="pp-hero-image-3 float-bob-y">
             <img src="assets/img/home-2/hero/hero-3.png" alt="img">
-        </div>
+        </div> --}}
         <div class="pp-hero-shape-3 float-bob-y">
             <img src="assets/img/home-2/hero/shape-3.png" alt="img">
         </div>
@@ -39,16 +39,16 @@
                             <img src="assets/img/home-2/hero/dgroup.png" alt=""> 50+ Happy customers
                             worldwide
                         </h6>
-                        <h1>
-                            All-in-One SaaS Ecosystem to Power Your Business Growth
+                        <h1 class="heroText">
+                            All-in-One SaaS Ecosystem to Boost Your Brand Growth
                         </h1>
 
-                        <p>{!! optional(\App\Models\AppConfiguration::first())->about !!}</p>
+                        <p class="heroSubText">{!! optional(\App\Models\AppConfiguration::first())->about !!}</p>
 
                         <div class="pp-hero-button">
-                            <a href="contact.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Contact Us
+                            <a href="{{ route('contact') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Contact Us
                                 <i class="fa-solid fa-arrow-right-long"></i></a>
-                            {{-- <a href="contact.html" class="pp-theme-btn pp-style-2 wow fadeInUp" data-wow-delay=".3s">Watch
+                            {{-- <a href="{{ route('contact') }}" class="pp-theme-btn pp-style-2 wow fadeInUp" data-wow-delay=".3s">Watch
                                 Demo <i class="fa-solid fa-arrow-right-long"></i></a> --}}
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <a href="about.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Discover More
+                            <a href="{{ route('about') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Discover More
                                 <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
                                 condimentum. Aliquam vitae scelerisque leo, eu vulputate felis. Donec et tristique nisl.
                                 Ut bibendum vehicula elit a consequat.
                             </p>
-                            <a href="contact.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Discover
+                            <a href="{{ route('contact') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Discover
                                 More <i class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
@@ -277,7 +277,7 @@
                                 your control — ensuring powerful performance without compromising confidentiality or
                                 trust. Intelligence, with integrity.
                             </p>
-                            <a href="contact.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Stay
+                            <a href="{{ route('contact') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Stay
                                 Compliant with Confidence</a>
                         </div>
                     </div>
@@ -303,7 +303,7 @@
                                 Instantly connect with your favorite tools and platforms to streamline workflows,
                                 automate tasks, and scale faster — no technical hassle required.
                             </p>
-                            <a href="contact.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">View All
+                            <a href="{{ route('contact') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">View All
                                 Integrations</a>
                         </div>
                     </div>

@@ -8012,3 +8012,18 @@ span {
 }
 
 /*# sourceMappingURL=main.css.map */
+.heroText {
+    padding: 0 10rem !important;
+}
+.heroSubText {
+    color: transparent !important;
+}
+
+@media screen {
+    .heroText {
+        padding: 0rem;
+    }
+    .heroSubText {
+        color: white;
+    }
+}

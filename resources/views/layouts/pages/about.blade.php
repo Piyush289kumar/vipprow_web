@@ -1,9 +1,6 @@
 @extends('layouts.app')
-
 @section('title', 'About us')
-
 @section('content')
-
     <!-- Pp-Breadcrumb wrapper Start -->
     <div class="pp-breadcrumb-wrapper fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb.jpg);">
         <div class="container">
@@ -13,7 +10,7 @@
                 </div>
                 <ul class="pp-breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                     <li>
-                        <a href="index.html">
+                        <a href="{{ route('index') }}">
                             Home
                         </a>
                     </li>
@@ -27,7 +24,6 @@
             </div>
         </div>
     </div>
-
     <!-- Pp-About Section Start -->
     <section class="pp-about-section section-padding fix">
         <div class="container">
@@ -64,7 +60,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <a href="about.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Discover More <i
+                            <a href="{{ route('about') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Discover More <i
                                     class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
@@ -81,7 +77,6 @@
             </div>
         </div>
     </section>
-
     <!-- Pp-How-Wowk Section Start -->
     <section class="pp-how-work-section section-padding fix section-bg-2">
         <div class="top-shape">
@@ -131,7 +126,6 @@
             </div>
         </div>
     </section>
-
     <!-- Pp-key-feature Section Start -->
     <section class="pp-key-feature-section section-padding pb-0 fix">
         <div class="container">
@@ -171,7 +165,7 @@
                                     Undo/Redo & Version History
                                 </li>
                             </ul>
-                            <a href="contact.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".5s">Read More <i
+                            <a href="{{ route('contact') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".5s">Read More <i
                                     class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
@@ -179,7 +173,6 @@
             </div>
         </div>
     </section>
-
     <!-- Pp-key-feature Section Start -->
     <section class="pp-key-feature-section section-padding fix">
         <div class="container">
@@ -208,7 +201,7 @@
                                     Undo/Redo & Version History
                                 </li>
                             </ul>
-                            <a href="contact.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".5s">Read More <i
+                            <a href="{{ route('contact') }}" class="pp-theme-btn wow fadeInUp" data-wow-delay=".5s">Read More <i
                                     class="fa-solid fa-arrow-right-long"></i></a>
                         </div>
                     </div>
@@ -227,9 +220,6 @@
             </div>
         </div>
     </section>
-
     @include('layouts.components.testimonial')
-
     @include('layouts.components.blogScroller')
-
 @endsection

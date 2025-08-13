@@ -24,7 +24,7 @@
                 <div class="col-xl-5 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".2s">
                     <div class="pp-footer-widget-items">
                         <div class="pp-widget-head">
-                            <a href="index.html" class="pp-footer-logo">
+                            <a href="{{ route('index') }}" class="pp-footer-logo">
                                 <img src="assets/img/logo/vipintiwari.png" alt="img" style="width: 55px;">
                             </a>
                         </div>

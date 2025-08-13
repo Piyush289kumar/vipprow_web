@@ -14,7 +14,7 @@
                 </div>
                 <ul class="pp-breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                     <li>
-                        <a href="index.html">
+                        <a href="{{ route('index') }}">
                             Home
                         </a>
                     </li>
