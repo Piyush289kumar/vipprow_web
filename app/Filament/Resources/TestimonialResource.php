@@ -37,7 +37,7 @@ class TestimonialResource extends Resource
                     ->imagePreviewHeight('100')
                     ->directory('testimonials')
                     ->label('Profile Image')
-                    ->required(),
+                    ->nullable(),
 
                 TextInput::make('name')
                     ->required()

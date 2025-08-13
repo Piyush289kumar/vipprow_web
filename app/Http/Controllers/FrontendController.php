@@ -6,6 +6,7 @@ use App\Models\AppConfiguration;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\ContactUs;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -14,21 +15,24 @@ class FrontendController extends Controller
     public function index()
     {
         $recentBlogs = Blog::orderBy("id", "desc")->limit(3)->get();
+        $testimonials = Testimonial::orderBy("id", "desc")->get();
 
-        return view("layouts.pages.home", compact("recentBlogs"));
+        return view("layouts.pages.home", compact("recentBlogs", "testimonials"));
     }
     public function about()
     {
         $recentBlogs = Blog::orderBy("id", "desc")->limit(3)->get();
+        $testimonials = Testimonial::orderBy("id", "desc")->get();
 
-        return view("layouts.pages.about", compact("recentBlogs"));
+        return view("layouts.pages.about", compact("recentBlogs", "testimonials"));
     }
 
     public function service()
     {
         $recentBlogs = Blog::orderBy("id", "desc")->limit(3)->get();
+        $testimonials = Testimonial::orderBy("id", "desc")->get();
 
-        return view("layouts.pages.service", compact("recentBlogs"));
+        return view("layouts.pages.service", compact("recentBlogs", "testimonials"));
     }
 
     public function blogs()
@@ -66,8 +70,9 @@ class FrontendController extends Controller
     public function contact()
     {
         $recentBlogs = Blog::orderBy("id", "desc")->limit(3)->get();
+        $testimonials = Testimonial::orderBy("id", "desc")->get();
 
-        return view("layouts.pages.contact", compact("recentBlogs"));
+        return view("layouts.pages.contact", compact("recentBlogs", "testimonials"));
     }
 
     public function submitContact(Request $request)

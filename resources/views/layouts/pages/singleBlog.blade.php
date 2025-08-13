@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Blog')
+
 
 @section('content')
 
     <!-- Pp-Breadcrumb wrapper Start -->
-    <div class="pp-breadcrumb-wrapper fix bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb.jpg);">
+    <div class="pp-breadcrumb-wrapper fix bg-cover"
+        style="background-image: url('{{ asset('assets/img/inner-page/breadcrumb.jpg') }}');">
         <div class="container">
             <div class="pp-page-heading">
                 <div class="pp-breadcrumb-sub-title">
@@ -21,7 +22,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </li>
                     <li>
-                        Blog Details
+                        {{ $blog->title }}
                     </li>
                 </ul>
             </div>
