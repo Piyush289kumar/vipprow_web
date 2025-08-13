@@ -34,102 +34,59 @@
             <div class="pp-news-standard-wrapper">
                 <div class="row g-4">
                     <div class="col-12 col-lg-8">
+
+
+
                         <div class="pp-news-standard-items">
-                            <div class="pp-news-card-items-4">
-                                <div class="pp-news-image">
-                                    <img src="assets/img/home-2/news/news-7.jpg" alt="img">
-                                </div>
-                                <div class="pp-news-content">
-                                    <ul class="pp-date-list">
-                                        <li>
-                                            <i class="fa-solid fa-calendar-days"></i> 11 March 2025
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-comments"></i> 19 Comments
-                                        </li>
-                                    </ul>
-                                    <h3>
-                                        <a href="news-details.html">
-                                            Choose The Best IT Service Company in the City.
+
+                            @foreach ($blogs as $blog)
+                                <div class="pp-news-card-items-4">
+                                    <div class="pp-news-image">
+                                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}">
+                                    </div>
+                                    <div class="pp-news-content">
+                                        <ul class="pp-date-list">
+                                            <li>
+                                                <i class="fa-solid fa-calendar-days"></i>
+                                                {{ $blog->created_at->format('d F Y') }}
+                                            </li>
+                                            <li>
+                                                <i class="fa-solid fa-comments"></i> {{ $blog->comments_count ?? 0 }}
+                                                Comments
+                                            </li>
+                                        </ul>
+                                        <h3>
+                                            <a href="{{ route('single-blog', $blog->slug) }}">
+                                                {{ $blog->title }}
+                                            </a>
+                                        </h3>
+                                        <p>
+                                            {{ Str::limit(strip_tags($blog->content), 150, '...') }}
+                                        </p>
+                                        <a href="{{ route('single-blog', $blog->slug) }}" class="pp-theme-btn wow fadeInUp"
+                                            data-wow-delay=".3s">
+                                            Read More <i class="fa-solid fa-arrow-right-long"></i>
                                         </a>
-                                    </h3>
-                                    <p>
-                                        Pellentesque egestas rutrum nibh facilisis ultrices. Phasellus in magna ut orci
-                                        malesuada the sollicitudin. Aenean faucibus scelerisque convallis. Quisque interdum
-                                        mauris id nunc molestie tincidunt erat gravida. Nullam dui libero, mollis ac quam
-                                        et, venenatis.
-                                    </p>
-                                    <a href="news-details.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Read
-                                        More <i class="fa-solid fa-arrow-right-long"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pp-news-card-items-4">
-                                <div class="pp-news-image">
-                                    <img src="assets/img/home-2/news/news-8.jpg" alt="img">
-                                </div>
-                                <div class="pp-news-content">
-                                    <ul class="pp-date-list">
-                                        <li>
-                                            <i class="fa-solid fa-calendar-days"></i> 11 March 2025
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-comments"></i> 19 Comments
-                                        </li>
-                                    </ul>
-                                    <h3>
-                                        <a href="news-details.html">
-                                            Keep Your Business Safe Ensure High Availability
-                                        </a>
-                                    </h3>
-                                    <p>
-                                        Pellentesque egestas rutrum nibh facilisis ultrices. Phasellus in magna ut orci
-                                        malesuada the sollicitudin. Aenean faucibus scelerisque convallis. Quisque interdum
-                                        mauris id nunc molestie tincidunt erat gravida. Nullam dui libero, mollis ac quam
-                                        et, venenatis.
-                                    </p>
-                                    <a href="news-details.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Read
-                                        More <i class="fa-solid fa-arrow-right-long"></i></a>
-                                </div>
-                            </div>
-                            <div class="pp-news-card-items-4 mb-0">
-                                <div class="pp-news-image">
-                                    <img src="assets/img/home-2/news/news-9.jpg" alt="img">
-                                </div>
-                                <div class="pp-news-content">
-                                    <ul class="pp-date-list">
-                                        <li>
-                                            <i class="fa-solid fa-calendar-days"></i> 11 March 2025
-                                        </li>
-                                        <li>
-                                            <i class="fa-solid fa-comments"></i> 19 Comments
-                                        </li>
-                                    </ul>
-                                    <h3>
-                                        <a href="news-details.html">
-                                            Tackling the Changes of Retell Industry
-                                        </a>
-                                    </h3>
-                                    <p>
-                                        Pellentesque egestas rutrum nibh facilisis ultrices. Phasellus in magna ut orci
-                                        malesuada the sollicitudin. Aenean faucibus scelerisque convallis. Quisque interdum
-                                        mauris id nunc molestie tincidunt erat gravida. Nullam dui libero, mollis ac quam
-                                        et, venenatis.
-                                    </p>
-                                    <a href="news-details.html" class="pp-theme-btn wow fadeInUp" data-wow-delay=".3s">Read
-                                        More <i class="fa-solid fa-arrow-right-long"></i></a>
-                                </div>
-                            </div>
+                            @endforeach
+
+
+
                             <div class="page-nav-wrap">
-                                <ul>
-                                    <li class="active"><a class="page-numbers" href="#">1</a></li>
-                                    <li><a class="page-numbers" href="#">2</a></li>
-                                    <li><a class="page-numbers" href="#">3</a></li>
-                                    <li><a class="page-numbers" href="#"><i class="fa-solid fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
+
+                                {{-- Pagination Links --}}
+                                <div class="mt-4">
+                                    {{ $blogs->links('pagination::bootstrap-4') }}
+                                </div>
+
                             </div>
                         </div>
+
+
                     </div>
+
+
                     <div class="col-lg-4 col-12">
                         <div class="pp-main-sideber sticky-style">
                             <div class="pp-single-sideber-widget">
@@ -137,11 +94,14 @@
                                     <h3>Categories</h3>
                                 </div>
                                 <ul class="pp-category-list">
-                                    <li><a href="news-details.html">Technology</a><span>(7)</span></li>
-                                    <li><a href="news-details.html">Business</a><span>(4)</span></li>
-                                    <li><a href="news-details.html">Apps Development</a><span>(5)</span></li>
-                                    <li><a href="news-details.html">Social Marketing</a><span>(3)</span></li>
-                                    <li><a href="news-details.html">System</a><span>(6)</span></li>
+                                    @foreach ($category as $cat)
+                                        <li>
+                                            <a href="{{ route('blogs', ['category' => $cat->slug]) }}">
+                                                {{ $cat->name }}
+                                            </a>
+                                            <span>({{ $cat->blogs_count ?? 0 }})</span>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="pp-single-sideber-widget">

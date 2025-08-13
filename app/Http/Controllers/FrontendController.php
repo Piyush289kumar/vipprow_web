@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\AppConfiguration;
+use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -23,13 +25,18 @@ class FrontendController extends Controller
 
     public function blogs()
     {
-        return view("layouts.pages.blogs");
+        $category = Category::withCount('blogs')->orderBy("id", "desc")->get();
+        $blogs = Blog::orderBy("id", "desc")->paginate(3);
+        $recentBlogs = Blog::orderBy("id", "desc")->limit(3)->get();
+        return view("layouts.pages.blogs", compact("category", "blogs", "recentBlogs"));
     }
 
     public function singleBlog($slug)
     {
-        return view("layouts.pages.about");
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        return view("layouts.pages.single-blog", compact("blog"));
     }
+
 
     public function contact()
     {
