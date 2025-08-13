@@ -1,0 +1,1 @@
+filament login error solved - try this php artisan vendor:publish --force --tag=livewire:assets
