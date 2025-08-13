@@ -8,7 +8,7 @@
                         Take Your Business Higher — Today!
                     </h2>
                     <p>
-                       {!! optional(\App\Models\AppConfiguration::first())->about !!}
+                        {!! optional(\App\Models\AppConfiguration::first())->about !!}
                     </p>
                 </div>
                 <form action="#" class="wow fadeInUp" data-wow-delay=".5s">
@@ -33,12 +33,34 @@
                                 It is a long established fact that from will be distracted by the readable from when
                                 looking.
                             </p>
+
+
+
+
+                            @php
+                                $config = \App\Models\AppConfiguration::first();
+
+                                // Map model field names to FontAwesome icon classes
+                                $socialIcons = [
+                                    'whatsapp_link' => 'fab fa-whatsapp',
+                                    'facebook_link' => 'fab fa-facebook-f',
+                                    'instagram_link' => 'fab fa-instagram',
+                                    'twitter_link' => 'fab fa-twitter',
+                                    'youtube_link' => 'fab fa-youtube',
+                                    'linkedin_link' => 'fab fa-linkedin-in',
+                                ];
+                            @endphp
+
                             <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                @foreach ($socialIcons as $field => $icon)
+                                    @if (!empty($config->$field))
+                                        <a href="{{ $config->$field }}" target="_blank">
+                                            <i class="{{ $icon }}"></i>
+                                        </a>
+                                    @endif
+                                @endforeach
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -48,24 +70,24 @@
                             <h3>Quick Links</h3>
                         </div>
                         <ul class="pp-list-area">
-                            <li>
-                                <a href="index.html">
+                            <li class="">
+                                <a href="{{ route('index') }}">
                                     Home
                                 </a>
                             </li>
-                            <li>
-                                <a href="contact.html">
+                            <li class="">
+                                <a href="{{ route('service') }}">
                                     Services
                                 </a>
                             </li>
-                            <li>
-                                <a href="contact.html">
+                            <li class="">
+                                <a href="{{ route('blogs') }}">
                                     Blogs
                                 </a>
                             </li>
-                            <li>
-                                <a href="service.html">
-                                    Service
+                            <li class="">
+                                <a href="{{ route('about') }}">
+                                    About Us
                                 </a>
                             </li>
                         </ul>
@@ -78,22 +100,22 @@
                         </div>
                         <ul class="pp-list-area">
                             <li>
-                                <a href="contact.html">
+                                <a href="{{ route('about') }}">
                                     About Us
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html">
+                                <a href="{{ route('policy') }}">
                                     Privacy Policy
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html">
+                                <a href="{{ route('policy') }}">
                                     Terms & Conditions
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html">
+                                <a href="{{ route('contact') }}">
                                     Contact Us
                                 </a>
                             </li>
@@ -113,7 +135,7 @@
                                 <h6>
                                     <a href="mailto:{!! optional(\App\Models\AppConfiguration::first())->email !!}">
                                         {!! optional(\App\Models\AppConfiguration::first())->email !!}
-                                    </a> <br>                                    
+                                    </a> <br>
                                 </h6>
                             </div>
                         </div>
@@ -123,7 +145,7 @@
                             </div>
                             <div class="pp-content">
                                 <h6>
-                                    <a href="tel:+91{!! optional(\App\Models\AppConfiguration::first())->phone !!}">+91 {!! optional(\App\Models\AppConfiguration::first())->phone !!}</a> <br>                                    
+                                    <a href="tel:+91{!! optional(\App\Models\AppConfiguration::first())->phone !!}">+91 {!! optional(\App\Models\AppConfiguration::first())->phone !!}</a> <br>
                                 </h6>
                             </div>
                         </div>
@@ -138,13 +160,13 @@
                 <p class="wow fadeInUp" data-wow-delay=".3s">Copyright© <b>Vipprow Pvt. Ltd.</b></p>
                 <ul class="pp-footer-list wow fadeInUp" data-wow-delay=".5s">
                     <li>
-                        <a href="contact.html">Terms & Conditions</a>
+                        <a href="{{ route('policy') }}">Terms & Conditions</a>
                     </li>
                     <li>
-                        <a href="contact.html">Privacy Policy</a>
+                        <a href="{{ route('policy') }}">Privacy Policy</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact Us</a>
+                        <a href="{{ route('contact') }}">Contact Us</a>
                     </li>
                 </ul>
             </div>

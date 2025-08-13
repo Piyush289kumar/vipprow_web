@@ -138,7 +138,7 @@
                             'youtube_link' => 'fab fa-youtube',
                             'linkedin_link' => 'fab fa-linkedin-in',
                         ];
-                    @endphp                    
+                    @endphp
 
                     <div class="social-icon d-flex align-items-center">
                         @foreach ($socialIcons as $field => $icon)
@@ -177,34 +177,34 @@
                         <nav id="mobile-menu">
                             <ul>
                                 <li class="">
-                                    <a href="index.html" class="border-none">
+                                    <a href="{{ route('index') }}" class="border-none">
                                         Home
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="index.html" class="border-none">
+                                    <a href="{{ route('service') }}" class="border-none">
                                         Services
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="index.html" class="border-none">
+                                    <a href="{{ route('blogs') }}" class="border-none">
                                         Blogs
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="index.html" class="border-none">
+                                    <a href="{{ route('about') }}" class="border-none">
                                         About Us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact Us</a>
+                                    <a href="{{ route('contact') }}">Contact Us</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class="header-right d-flex justify-content-end align-items-center">
-                    <a href="contact.html" class="pp-theme-btn">
+                    <a href="{{ route('contact') }}" class="pp-theme-btn">
                         Get a quote <i class="fa-solid fa-arrow-right-long"></i>
                     </a>
                     <div class="header__hamburger d-xl-none my-auto">
