@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Blog')
 
 @section('content')
 
@@ -9,11 +9,11 @@
         <div class="container">
             <div class="pp-page-heading">
                 <div class="pp-breadcrumb-sub-title">
-                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Blogs</h1>
+                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Blog Details</h1>
                 </div>
                 <ul class="pp-breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                     <li>
-                        <a href="{{ route('index') }}">
+                        <a href="index.html">
                             Home
                         </a>
                     </li>
@@ -21,59 +21,32 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </li>
                     <li>
-                        Blogs
+                        Blog Details
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Blog Side Bar Start -->
-    <section class="news-standard-section section-padding">
+    <!-- Pp-news Section2 Start -->
+    <section class="pp-news-details-section section-padding">
         <div class="container">
-            <div class="pp-news-standard-wrapper">
+            <div class="pp-news-details-wrapper">
                 <div class="row g-4">
                     <div class="col-12 col-lg-8">
 
-
-
-                        <div class="pp-news-standard-items">
-
-                            @foreach ($blogs as $blog)
-                                <div class="pp-news-card-items-4">
-                                    <div class="pp-news-image">
-                                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}">
-                                    </div>
-                                    <div class="pp-news-content">
-                                        <ul class="pp-date-list">
-                                            <li>
-                                                <i class="fa-solid fa-calendar-days"></i>
-                                                {{ $blog->created_at->format('d F Y') }}
-                                            </li>                                           
-                                        </ul>
-                                        <h3>
-                                            <a href="{{ route('single-blog', $blog->slug) }}">
-                                                {{ $blog->title }}
-                                            </a>
-                                        </h3>
-                                        <p>
-                                            {{ Str::limit(strip_tags($blog->body), 150, '...') }}
-                                        </p>
-                                        <a href="{{ route('single-blog', $blog->slug) }}" class="pp-theme-btn wow fadeInUp"
-                                            data-wow-delay=".3s">
-                                            Read More <i class="fa-solid fa-arrow-right-long"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                            <div class="page-nav-wrap mt-4">
-                                {{ $blogs->links('pagination::bootstrap-4') }}
-                            </div>
-
+                        {{-- Blog Featured Image --}}
+                        <div class="pp-details-image">
+                            <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}">
                         </div>
 
-
+                        {{-- Blog Content --}}
+                        <div class="pp-news-details-content">
+                            <h3>{{ $blog->title }}</h3>
+                            <p>
+                                {!! $blog->body !!}
+                            </p>
+                        </div>
                     </div>
 
 
@@ -123,7 +96,6 @@
 
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -131,5 +103,4 @@
             </div>
         </div>
     </section>
-
 @endsection

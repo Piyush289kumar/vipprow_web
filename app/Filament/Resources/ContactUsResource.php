@@ -42,7 +42,7 @@ class ContactUsResource extends Resource
                 TextColumn::make('first_name')->searchable(),
                 TextColumn::make('last_name')->searchable(),
                 TextColumn::make('email')->copyable(),
-                TextColumn::make('subject')->limit(30),
+                TextColumn::make('message')->limit(30),
                 IconColumn::make('is_resolved')->boolean()->label('Resolved'),
                 TextColumn::make('created_at')->dateTime('d M Y h:i A')->label('Submitted'),
             ])->defaultSort('created_at', 'desc')

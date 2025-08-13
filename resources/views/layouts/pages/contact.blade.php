@@ -13,7 +13,7 @@
                 </div>
                 <ul class="pp-breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                     <li>
-                        <a href="{{route('index')}}">
+                        <a href="{{ route('index') }}">
                             Home
                         </a>
                     </li>
@@ -75,29 +75,54 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-7">
                         <div class="pp-contact-content">
                             <h3>
                                 Ready to Get Started?
                             </h3>
-                            <form action="contact.php" id="contact-form1" method="POST" class="pp-contact-form-items">
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+
+
+                            <form action="{{ route('contact.submit') }}" method="POST" id="contact-form1"
+                                class="pp-contact-form-items">
+                                @csrf
                                 <div class="row g-4">
                                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
                                         <div class="form-clt">
-                                            <span>Your Name*</span>
-                                            <input type="text" name="name" id="name331" placeholder="Your name">
+                                            <span>First Name*</span>
+                                            <input type="text" name="first_name" id="first_name" placeholder="First name"
+                                                required>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                        <div class="form-clt">
+                                            <span>Last Name*</span>
+                                            <input type="text" name="last_name" id="last_name" placeholder="Last name"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                        <div class="form-clt">
+                                            <span>Phone *</span>
+                                            <input type="text" name="phone" id="phone" placeholder="12345 67890"
+                                                required>
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                         <div class="form-clt">
                                             <span>Your Email*</span>
-                                            <input type="text" name="name" id="email11" placeholder="Your email">
+                                            <input type="email" name="email" id="email11" placeholder="Your email"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 wow fadeInUp" data-wow-delay=".9s">
                                         <div class="form-clt">
                                             <span>Write Message*</span>
-                                            <textarea name="message" id="message1" placeholder="Message Here"></textarea>
+                                            <textarea name="message" id="message1" placeholder="Message Here" required></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
@@ -107,8 +132,13 @@
                                     </div>
                                 </div>
                             </form>
+
+
+
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>

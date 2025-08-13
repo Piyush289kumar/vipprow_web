@@ -11,5 +11,6 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/blogs/category/{slug}', 'blogsByCategory')->name('blogs.category');
     Route::get('/service', 'service')->name('service');
     Route::get('/contact', 'contact')->name('contact');
+    Route::post('/contact', [FrontendController::class, 'submitContact'])->name('contact.submit');
     Route::get('/policy/slug', 'policy')->name('policy');
 });
